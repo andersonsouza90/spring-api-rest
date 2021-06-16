@@ -1,1 +1,1 @@
-web: java -jar target/springrestapi-0.0.1-SNAPSHOT.jar
+web: java -jar -Dserver.port=$PORT target/pringrestapi-0.0.1-SNAPSHOT.war
