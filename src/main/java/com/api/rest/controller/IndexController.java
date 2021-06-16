@@ -53,6 +53,13 @@ public class IndexController {
 	
 	@PostMapping(value = "/", produces = "application/json")
 	public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario u){
+		
+		//Não está sendo gravado o id usuario na tabela telefone
+		//para contornar isso, varrer a lista de telefone e associar os ids aqui		
+		for(int pos = 0; pos < u.getTelefones().size(); pos++) {
+			u.getTelefones().get(pos).setUsuario(u);
+		}
+		
 		Usuario usuarioSalvo = usuarioRepository.save(u);
 		
 		return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);
@@ -60,6 +67,13 @@ public class IndexController {
 	
 	@PutMapping(value = "/", produces = "application/json")
 	public ResponseEntity<Usuario> atualizar(@RequestBody Usuario u){
+		
+		//Não está sendo gravado o id usuario na tabela telefone
+		//para contornar isso, varrer a lista de telefone e associar os ids aqui		
+		for(int pos = 0; pos < u.getTelefones().size(); pos++) {
+			u.getTelefones().get(pos).setUsuario(u);
+		}
+		
 		Usuario usuarioSalvo = usuarioRepository.save(u);
 		
 		return new ResponseEntity<Usuario>(usuarioSalvo, HttpStatus.OK);

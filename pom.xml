@@ -11,11 +11,13 @@
 	<groupId>com.api.rest</groupId>
 	<artifactId>springrestapi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<name>springrestapi</name>
 	<description>APIs com REST springboot</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<!-- Pulas os testes no deploy -->
+		<maven.test.skip>true</maven.test.skip>
 	</properties>
 	
 	<dependencies>

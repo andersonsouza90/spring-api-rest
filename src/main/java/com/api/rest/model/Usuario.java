@@ -1,17 +1,23 @@
 package com.api.rest.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Usuario implements Serializable{
 	
 	private static final long serialVersionUID = 3261826227221106236L;
-
+	
+	
+	//A estrutura JSON formata a string com a sequencia dos atributos da classe
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -20,6 +26,17 @@ public class Usuario implements Serializable{
 	private String login;
 	private String senha;
 	
+	@OneToMany(mappedBy = "usuario", orphanRemoval = true, cascade = CascadeType.ALL)
+	private List<Telefone> telefones = new ArrayList<Telefone>();
+	
+	
+	
+	public List<Telefone> getTelefones() {
+		return telefones;
+	}
+	public void setTelefones(List<Telefone> telefones) {
+		this.telefones = telefones;
+	}
 	public Long getId() {
 		return id;
 	}
