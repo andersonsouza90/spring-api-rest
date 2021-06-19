@@ -28,8 +28,10 @@ public class SpringrestapiApplication implements WebMvcConfigurer{
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/usuario/**")
+		//.allowedMethods("POST")
+		//.allowedOrigins("http://localhost:8080/springrestapi", "https://springboot-restapi-projeto.herokuapp.com/springrestapi")
 		.allowedMethods("*")
-		.allowedOrigins("http://localhost:8080/springrestapi", "https://springboot-restapi-projeto.herokuapp.com/springrestapi");
+		.allowedOrigins("*");
 	}
 	
 	
