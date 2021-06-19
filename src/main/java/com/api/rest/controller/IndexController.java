@@ -21,7 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.api.rest.model.Usuario;
 import com.api.rest.repository.UsuarioRepository;
 
-@CrossOrigin(origins = "*")
+//CrossOrigin configura origem do acesso ao controle ou a determinado end-point
+//@CrossOrigin(origins = "*")
 @RestController /*Arquitetura REST*/
 @RequestMapping(value = "/usuario")
 public class IndexController {
@@ -46,12 +47,14 @@ public class IndexController {
 		return new ResponseEntity<Usuario>(u.get(), HttpStatus.OK);
 	}
 	
+	//@CrossOrigin configura origem do acesso ao controle ou a determinado end-point
 	@GetMapping(value = "/", produces = "application/json")
 	public ResponseEntity<List<Usuario>> usuario(){
 		List<Usuario> listaUsuario = (List<Usuario>) usuarioRepository.findAll();
 		
 		return new ResponseEntity<List<Usuario>>(listaUsuario, HttpStatus.OK);
 	}
+	
 	
 	@PostMapping(value = "/", produces = "application/json")
 	public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario u){
