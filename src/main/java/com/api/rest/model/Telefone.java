@@ -1,7 +1,5 @@
 package com.api.rest.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,10 +11,7 @@ import org.hibernate.annotations.ForeignKey;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Telefone implements Serializable{
-
-	private static final long serialVersionUID = 1L;
-	
+public class Telefone{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
